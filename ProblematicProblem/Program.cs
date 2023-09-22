@@ -15,6 +15,7 @@ class ProblematicProblem
             //cont = bool.Parse(Console.ReadLine());
             string userInput1 = Console.ReadLine();
             cont = userInput1 == "yes" ? true : false;
+            if (cont == false) { return; }
             Console.WriteLine();
             Console.Write("We are going to need your information first! What is your name? ");
             string userName = Console.ReadLine();
@@ -25,7 +26,7 @@ class ProblematicProblem
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
             //bool seeList = bool.Parse(Console.ReadLine());
             string userInput2 = Console.ReadLine();
-            bool seeList = userInput2 == "Sure" ? true : false;
+            bool seeList = userInput2.ToLower() == "sure" ? true : false;
             if (seeList)
             {
                 foreach (string activity in activities)
@@ -83,11 +84,11 @@ class ProblematicProblem
                     randomNumber = rng.Next(activities.Count);
                     randomActivity = activities[randomNumber];
                 }
-                Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
+                Console.Write($"Ah got it! {userName}, your random activity is:{randomActivity} ! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
                 //cont = bool.Parse(Console.ReadLine());
                 string userInput5 = Console.ReadLine();
-                cont = userInput5 == "yes" ? true : false;
+                cont = userInput5.ToLower() == "yes".ToLower() || userInput5.ToLower() == "redo" ? true : false;
             }
         }
     }
